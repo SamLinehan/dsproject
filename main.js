@@ -1,23 +1,25 @@
-// var request = new XMLHttpRequest();
-//
-// request.onreadystatechange = function(){
-//   if(this.readyState == 4 && this.status == 200){
-//     var listings = JSON.parse(this.responseText);
-//     console.log(listings);
-
-    // for(var i = 0; i < listings.length; i++){
-    //   console.log(listings[i].label)
-
-
-
 $(document).ready(function(){
-    $.get('http://star-api.herokuapp.com/api/v1/exo_planets.json', function(data){
-      console.log(data);
+    $.get('http://star-api.herokuapp.com/api/v1/stars.json', function(data){
       for(var i = 0; i < data.length; i ++){
         console.log(data[i].label);
+        if(data[i].label === $('#search').value){
+          console.log("Test");
+        }
+      }
+      var sortedList = data.sort(function(){
+        return Math.round(Math.random()) - 0.5;
+      })
+      
+      for(var i = 0; i <= 10; i++){
+        var randomList = document.getElementById('randomList');
+        var newItem = document.createElement('li');
+        newItem.innerHTML = data[i].label;
+        randomList.appendChild(newItem);
       }
     })
-//   $('button').on('click', function(){
-//     console.log($('#search').value)
-//   })
+    $.get('http://star-api.herokuapp.com/api/v1/exo_planets.json', function(data){
+      for(var i = 0; i < data.length; i++){
+        console.log(data[i].distance);
+      }
+    })
 })
