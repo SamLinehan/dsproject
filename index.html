@@ -6,17 +6,28 @@
     <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <form class="search" action="index.html" method="get">
-      <label for="searchBar">Enter star's name here: </label>
-      <input type="text" name="searchBar" placeholder="search" id="search">
-      <button type="submit" name="searchButton" id="searchButton">Submit</button>
-    </form>
-    <section>
-      <h3>Here's a list</h3>
-      <ul id="randomList">
-      </ul>
-    </section>
-    <section id="infoContainer"></section>
+    <main>
+      <section id="info">
+        <form class="search" action="index.html" method="get">
+          <label for="searchBar">Enter star's name here: </label>
+          <input type="text" name="searchBar" placeholder="search" id="search">
+          <button type="submit" name="searchButton" id="searchButton">Submit</button>
+        </form>
+        <section>
+          <h3>Here's a list</h3>
+          <ul id="randomList">
+          </ul>
+        </section>
+      </section>
+      <section id="figure">
+        <section id="infoContainer">
+          <header id="infoHeading"></header>
+        </section>
+        <section id="compContainer">
+          <header id="compHeading"></header>
+        </section>
+      </section>
+    </main>
     <script src = "http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src ="main.js"></script>
   </body>
