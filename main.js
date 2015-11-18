@@ -34,7 +34,7 @@ $(document).ready(function(){
       // Color of star
       console.log(data.colorb_v);
       if(data.colorb_v < -0.5){
-        $('#starCirc').css('background-color','hsl(197, 96%, 74%)');
+        $('#starCirc').css('background-color','hsl(210, 96%, 46%)');
       } else if (-0.5 < data.colorb_v && data.colorb_v < 0){
         $('#starCirc').css('background-color', 'hsl(197, 96%, 74%)');
       } else if (0 < data.colorb_v && data.colorb_v < 0.5){
