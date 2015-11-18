@@ -1,18 +1,26 @@
 $(document).ready(function(){
 
+  var recentSearches = JSON.parse(localStorage.userSearches)
+  console.log(recentSearches);
+  var searchList = document.createElement('li');
+  searchList.innerHTML = recentSearches;
+  $('#searchesList').append(searchList);
+
   // Below is the code for the search function
   $('#searchButton').on('click',function(e){
     e.preventDefault();
     var searchResult = $('#search').val();
     console.log(searchResult);
 
+
+
     // Display figure section after click event
     $('#figure').css('display', "block");
 
     // Below is the code for displaying the heading
     var infoHeading = document.createElement('h3');
+
     $.get('http://star-api.herokuapp.com/api/v1/stars/' + searchResult + '.json', function(data){
-      console.log(data);
       infoHeading.innerHTML = "More information about " + data.label;
       $('#infoHeading').append(infoHeading);
 
@@ -67,10 +75,15 @@ $(document).ready(function(){
         visibility.innerHTML = "Unlike the Sun, " + data.label + " is not visible to the naked eye";
       }
       $('#compContainer').append(visibility);
+
     })
 
     // Stars with exoplanets API data retrieval
     $.get('http://star-api.herokuapp.com/api/v1/exo_planets/' + searchResult + '.json', function(data){
+      if(data == null) {
+        alert("not a star!");
+        return
+      }
       console.log(data);
       infoHeading.innerHTML = "More information about " + data.label;
       $('#infoContainer').append(infoHeading);

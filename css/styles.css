@@ -1,0 +1,70 @@
+html {
+  background-image: url("http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/"); }
+
+main {
+  display: flex;
+  border-radius: 20px;
+  color: white;
+  padding: 30px;
+  margin-left: 40px; }
+
+#mainHead {
+  display: flex;
+  color: white; }
+
+video {
+  margin-left: 400px; }
+
+#list {
+  border: 1px solid white;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 20px; }
+
+#recent {
+  border: 1px solid white;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 20px; }
+
+#figure {
+  display: none;
+  border: 1px solid white;
+  background-image: url("http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/");
+  margin-left: 40px;
+  border-radius: 20px; }
+  #figure #infoContainer {
+    border: 1px solid white;
+    padding: 10px;
+    height: 150px;
+    border-radius: 20px;
+    margin: 10px; }
+  #figure p {
+    font-size: 12px;
+    color: white; }
+  #figure h3 {
+    font-size: 14px;
+    color: white; }
+  #figure #compContainer {
+    border: 1px solid black;
+    margin-left: 500px; }
+  #figure .holder {
+    display: flex;
+    background-image: url("http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/"); }
+  #figure #figButton {
+    margin-left: 20px;
+    margin-right: 200px; }
+  #figure #starCirc {
+    display: none;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px; }
+  #figure #earthCirc {
+    display: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: green;
+    margin-top: 150px; }
+
+/*# sourceMappingURL=styles.css.map */
