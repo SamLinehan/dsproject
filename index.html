@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Personal Project</title>
-    <link rel="stylesheet" href="styles.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   </head>
   <body>
     <main>
@@ -18,16 +19,30 @@
           <ul id="randomList">
           </ul>
         </section>
+        <section>
+          <h3>Recent Searches</h3>
+          <ul></ul>
+        </section>
       </section>
       <section id="figure">
-        <section id="infoContainer">
-          <header id="infoHeading"></header>
-        </section>
-        <section id="compContainer">
-          <header id="compHeading"></header>
-        </section>
+        <div class="holder">
+          <section id="infoContainer">
+            <header id="infoHeading"></header>
+          </section>
+          <form class="appear" action="index.html" method="get">
+            <button type="submit" name="figButton" id="figButton">Click</button>
+          </form>
+          <div id="starCirc"></div>
+        </div>
+        <div class="holder">
+          <div id="earthCirc"></div>
+          <section id="compContainer">
+            <header id="compHeading"></header>
+          </section>
+        </div>
       </section>
     </main>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src = "http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src ="main.js"></script>
   </body>

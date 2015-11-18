@@ -6,7 +6,10 @@ $(document).ready(function(){
     var searchResult = $('#search').val();
     console.log(searchResult);
 
-    // Below is the code for displaying the headings
+    // Display figure section after click event
+    $('#figure').css('display', "block");
+
+    // Below is the code for displaying the heading
     var infoHeading = document.createElement('h3');
     $.get('http://star-api.herokuapp.com/api/v1/stars/' + searchResult + '.json', function(data){
       console.log(data);
@@ -19,7 +22,7 @@ $(document).ready(function(){
       var dist = document.createElement('p');
       dist.innerHTML = data.label + " is " + data.distly + " light years from Earth";
       var color = document.createElement('p');
-      if( -1 < data.colorb_v < 0){
+      if(data.colorb_v < 0){
         color.innerHTML = data.label + " is a Blue Star";
       } else {
         color.innerHTML = data.label + " is a Red Star";
@@ -28,7 +31,19 @@ $(document).ready(function(){
       $('#infoContainer').append(dist);
       $('#infoContainer').append(color);
 
+      // Color of star
+      console.log(data.colorb_v);
+      if(data.colorb_v < -0.5){
+        $('#starCirc').css('background-color','hsla(197, 96%, 74%, 0.80)');
+      } else if (-0.5 < data.colorb_v && data.colorb_v < 0){
+        $('#starCirc').css('background-color', 'hsla(197, 96%, 74%, 0.50)');
+      } else if (0 < data.colorb_v && data.colorb_v < 0.5){
+        $('#starCirc').css('background-color', 'hsla(14, 96%, 45%, 0.50)');
+      } else {
+        $('#starCirc').css('background-color', 'hsla(356, 96%, 43%, 0.30)');
+      }
 
+      // Comparison Section
       var compHeading = document.createElement('h3');
       compHeading.innerHTML = "In comparison to the Sun,";
       $('#compHeading').append(compHeading);
@@ -94,5 +109,12 @@ $(document).ready(function(){
         newItemB.innerHTML = data[i].label;
         randomListB.appendChild(newItemB);
       }
+    })
+
+    // Figure Button
+    $('#figButton').on("click", function(e){
+      e.preventDefault();
+      $('#starCirc').css('display','block');
+      $('#earthCirc').css('display', 'block');
     })
   })
