@@ -1,25 +1,34 @@
 html {
   background-image: url("http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/"); }
+body{
+  border-radius: 20px;
+  background-color: white;
+  padding: 30px;
+}
 
 main {
   display: flex;
-  border-radius: 20px;
-  background-color: white;
-  padding: 30px; }
+ }
 
 #figure {
   display: none;
-  border: 1px solid black; }
+  border: 1px solid black;
+  margin-left: 20px;}
   #figure #infoContainer {
-    border: 1px solid black; }
+    border: 1px solid black;
+    height: 150px; }
   #figure p {
     font-size: 12px; }
   #figure h3 {
     font-size: 14px; }
   #figure #compContainer {
-    border: 1px solid black; }
+    border: 1px solid black;
+    margin-left: 500px;
+    height: 100px;
+    margin-top: 100px;}
   #figure .holder {
-    display: flex; }
+    display: flex;
+    margin: 20px; }
   #figure #figButton {
     margin-left: 20px;
     margin-right: 200px; }
@@ -27,12 +36,14 @@ main {
     display: none;
     width: 200px;
     height: 200px;
-    border-radius: 100px; }
+    border-radius: 100px;
+    margin-left: 400px;}
   #figure #earthCirc {
     display: none;
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    background-color: blue; }
+    background-color: blue;
+    margin-top: 150px; }
 
 /*# sourceMappingURL=styles.css.map */

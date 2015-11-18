@@ -2,6 +2,9 @@ html{
   background-image: url('http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/');
 }
 
+$font-stack:
+$primary-color: white;
+
 main {
   display: flex;
   border-radius: 20px;
@@ -13,20 +16,27 @@ main {
 #figure{
   display: none;
   border: 1px solid black;
+  background-image: url('http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/');
   #infoContainer{
     border: 1px solid black;
+    padding: 20px;
+    height:150px;
   }
   p{
     font-size: 12px;
+    color: $primary-color
   }
   h3{
     font-size: 14px;
+    color: $primary-color
   }
   #compContainer{
     border: 1px solid black;
+    margin-left: 500px;
   }
   .holder{
     display: flex;
+    background-image: url('http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/');
   }
   #figButton{
     margin-left: 20px;
@@ -44,5 +54,6 @@ main {
     height: 30px;
     border-radius: 15px;
     background-color: blue;
+    margin-top: 150px;
   }
 }

@@ -34,13 +34,13 @@ $(document).ready(function(){
       // Color of star
       console.log(data.colorb_v);
       if(data.colorb_v < -0.5){
-        $('#starCirc').css('background-color','hsla(197, 96%, 74%, 0.80)');
+        $('#starCirc').css('background-color','hsl(197, 96%, 74%)');
       } else if (-0.5 < data.colorb_v && data.colorb_v < 0){
-        $('#starCirc').css('background-color', 'hsla(197, 96%, 74%, 0.50)');
+        $('#starCirc').css('background-color', 'hsl(197, 96%, 74%)');
       } else if (0 < data.colorb_v && data.colorb_v < 0.5){
-        $('#starCirc').css('background-color', 'hsla(14, 96%, 45%, 0.50)');
+        $('#starCirc').css('background-color', 'hsl(14, 96%, 45%)');
       } else {
-        $('#starCirc').css('background-color', 'hsla(356, 96%, 43%, 0.30)');
+        $('#starCirc').css('background-color', 'hsl(356, 96%, 43%)');
       }
 
       // Comparison Section
@@ -74,6 +74,7 @@ $(document).ready(function(){
       console.log(data);
       infoHeading.innerHTML = "More information about " + data.label;
       $('#infoContainer').append(infoHeading);
+      $('#compContainer').css('display', 'none');
       var numPlanets = document.createElement('p');
       if(data.numplanets === 1){
         numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanet";
@@ -85,6 +86,8 @@ $(document).ready(function(){
       $('#infoContainer').append(numPlanets);
       $('#infoContainer').append(distance);
     })
+      $('#starCirc').css('background-color','hsl(14, 96%, 45%)');
+
   })
 
   // Below is the code for generating the list of stars
@@ -114,7 +117,7 @@ $(document).ready(function(){
     // Figure Button
     $('#figButton').on("click", function(e){
       e.preventDefault();
-      $('#starCirc').css('display','block');
-      $('#earthCirc').css('display', 'block');
+      $('#starCirc').css('display','inline');
+      $('#earthCirc').css('display', 'inline');
     })
   })
