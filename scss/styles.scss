@@ -4,6 +4,7 @@ html{
 
 $primary-color: white;
 $primary-border-radius: 20px;
+$explanet-color: linear-gradient(100deg, hsl(33, 96%, 40%), hsl(33, 96%, 20%));
 
 main {
   display: flex;
@@ -98,6 +99,13 @@ video{
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
   }
+// New feature
+  // #exPlanet1{
+  //   width: 20px;
+  //   height: 20px;
+  //   border-radius: 10px;
+  //   background: $explanet-color;
+    // display: none;}
   @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
   @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

@@ -6,6 +6,17 @@ $(document).ready(function(){
   searchList.innerHTML = recentSearches;
   $('#searchesList').append(searchList);
 
+  // Define Variables
+  var luminosity;
+  var infoHeading;
+  var dist;
+  var color;
+  var compHeading;
+  var luminosityComp;
+  var visibility;
+  var numPlanets;
+  var distance;
+
   // Below is the code for the search function
   $('#searchButton').on('click',function(e){
     e.preventDefault();
@@ -13,23 +24,27 @@ $(document).ready(function(){
     console.log(searchResult);
 
 
-
     // Display figure section after click event
     $('#figure').css('display', "block");
 
     // Below is the code for displaying the heading
-    var infoHeading = document.createElement('h3');
+    infoHeading = document.createElement('h3');
+
 
     $.get('http://star-api.herokuapp.com/api/v1/stars/' + searchResult + '.json', function(data){
       infoHeading.innerHTML = "More information about " + data.label;
+      // if(data == null){
+      //   alert("not a star!");
+      //   return
+      // }
       $('#infoHeading').append(infoHeading);
 
       // Stars without exoplanets API data retrieval
-      var luminosity = document.createElement('p');
+      luminosity = document.createElement('p');
       luminosity.innerHTML ="Luminosity: " + data.lum;
-      var dist = document.createElement('p');
+      dist = document.createElement('p');
       dist.innerHTML = data.label + " is " + data.distly + " light years from Earth";
-      var color = document.createElement('p');
+      color = document.createElement('p');
       if(data.colorb_v < 0){
         color.innerHTML = data.label + " is a Blue Star";
       } else {
@@ -52,10 +67,10 @@ $(document).ready(function(){
       }
 
       // Comparison Section
-      var compHeading = document.createElement('h3');
+      compHeading = document.createElement('h3');
       compHeading.innerHTML = "In comparison to the Sun,";
       $('#compHeading').append(compHeading);
-      var luminosityComp = document.createElement('p');
+      luminosityComp = document.createElement('p');
       var sunLum = 0.8913
       if(data.lum > sunLum){
         var greater = Math.floor((data.lum / sunLum));
@@ -68,7 +83,7 @@ $(document).ready(function(){
       }
       $('#compContainer').append(luminosityComp);
 
-      var visibility = document.createElement('p');
+      visibility = document.createElement('p');
       if( -2.5 < data.appmag < 6.5){
         visibility.innerHTML = "Like the Sun, " + data.label + " is visible to the naked eye";
       } else {
@@ -88,16 +103,17 @@ $(document).ready(function(){
       infoHeading.innerHTML = "More information about " + data.label;
       $('#infoContainer').append(infoHeading);
       $('#compContainer').css('display', 'none');
-      var numPlanets = document.createElement('p');
+      numPlanets = document.createElement('p');
       if(data.numplanets === 1){
         numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanet";
       } else {
         numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanets";
       }
-      var distance = document.createElement('p');
+      distance = document.createElement('p');
       distance.innerHTML = data.label + " is " + data.distance + " light years away from Earth";
       $('#infoContainer').append(numPlanets);
       $('#infoContainer').append(distance);
+
     })
       $('#starCirc').css('background','linear-gradient(100deg, hsl(14, 96%, 40%), hsl(14, 96%, 70%)');
 
@@ -137,10 +153,24 @@ $(document).ready(function(){
     $('#resetButton').on("click", function(){
       alert("Black Hole!")
       $('#figure').css('display','none');
-      $('#infoHeading').remove();
-      $('#infoContainer').remove();
-      $('#compHeading').remove();
-      $('#compContainer').remove();
+      $(luminosity).remove();
+      $(luminosity).innerHTML = "";
+      $(infoHeading).remove();
+      $(infoHeading).innerHTML = ""
+      $(dist).remove();
+      $(dist).innerHTML = "";
+      $(color).remove();
+      $(color).innerHTML = "";
+      $(compHeading).remove();
+      $(compHeading).innerHTML = "";
+      $(luminosityComp).remove();
+      $(luminosityComp).innerHTML = "";
+      $(visibility).innerHTML = "";
+      $(visibility).remove();
+      $(numPlanets).remove();
+      $(numPlanets).innerHTML = "";
+      $(distance).remove();
+      $(distance).innerHTML = "";
     })
 
   })
