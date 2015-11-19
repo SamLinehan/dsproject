@@ -76,7 +76,7 @@ video {
     border-radius: 15px;
     background: linear-gradient(100deg, green, blue);
     margin-top: 200px;
-    margin-left: 30px;
+    margin-left: 60px;
     -webkit-animation: spin 4s linear infinite;
     -moz-animation: spin 4s linear infinite;
     animation: spin 4s linear infinite; }

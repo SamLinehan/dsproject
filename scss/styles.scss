@@ -4,7 +4,7 @@ html{
 
 $primary-color: white;
 $primary-border-radius: 20px;
-$explanet-color: linear-gradient(100deg, hsl(33, 96%, 40%), hsl(33, 96%, 20%));
+// $explanet-color: linear-gradient(100deg, hsl(33, 96%, 40%), hsl(33, 96%, 20%));
 
 main {
   display: flex;
@@ -94,7 +94,7 @@ video{
     border-radius: 15px;
     background: linear-gradient(100deg, green, blue);
     margin-top: 200px;
-    margin-left: 30px;
+    margin-left: 60px;
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;

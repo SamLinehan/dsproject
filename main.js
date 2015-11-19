@@ -30,13 +30,9 @@ $(document).ready(function(){
     // Below is the code for displaying the heading
     infoHeading = document.createElement('h3');
 
-
-    $.get('http://star-api.herokuapp.com/api/v1/stars/' + searchResult + '.json', function(data){
+// Stars without exoplanets API
+    $.get('http://star-api.herokuapp.com/api/v1/stars/' + searchResult + '.json',function(data){
       infoHeading.innerHTML = "More information about " + data.label;
-      // if(data == null){
-      //   alert("not a star!");
-      //   return
-      // }
       $('#infoHeading').append(infoHeading);
 
       // Stars without exoplanets API data retrieval
@@ -67,6 +63,7 @@ $(document).ready(function(){
       }
 
       // Comparison Section
+      $('#compContainer').css('display', 'inline');
       compHeading = document.createElement('h3');
       compHeading.innerHTML = "In comparison to the Sun,";
       $('#compHeading').append(compHeading);
@@ -92,29 +89,24 @@ $(document).ready(function(){
       $('#compContainer').append(visibility);
 
     })
+      // Stars with exoplanets API data retrieval
+      $.get('http://star-api.herokuapp.com/api/v1/exo_planets/' + searchResult + '.json', function(data){
+        console.log(data);
+        infoHeading.innerHTML = "More information about " + data.label;
+        $('#infoContainer').append(infoHeading);
+        $('#compContainer').css('display', 'none');
+        numPlanets = document.createElement('p');
+        if(data.numplanets === 1){
+          numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanet";
+        } else {
+          numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanets";
+        }
+        distance = document.createElement('p');
+        distance.innerHTML = data.label + " is " + data.distance + " light years away from Earth";
+        $('#infoContainer').append(numPlanets);
+        $('#infoContainer').append(distance);
+      })
 
-    // Stars with exoplanets API data retrieval
-    $.get('http://star-api.herokuapp.com/api/v1/exo_planets/' + searchResult + '.json', function(data){
-      // if(data == null) {
-      //   alert("not a star!");
-      //   return
-      // }
-      console.log(data);
-      infoHeading.innerHTML = "More information about " + data.label;
-      $('#infoContainer').append(infoHeading);
-      $('#compContainer').css('display', 'none');
-      numPlanets = document.createElement('p');
-      if(data.numplanets === 1){
-        numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanet";
-      } else {
-        numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanets";
-      }
-      distance = document.createElement('p');
-      distance.innerHTML = data.label + " is " + data.distance + " light years away from Earth";
-      $('#infoContainer').append(numPlanets);
-      $('#infoContainer').append(distance);
-
-    })
       $('#starCirc').css('background','linear-gradient(100deg, hsl(14, 96%, 40%), hsl(14, 96%, 70%)');
 
   })
