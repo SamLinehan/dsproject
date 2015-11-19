@@ -42,13 +42,13 @@ $(document).ready(function(){
       // Color of star
       console.log(data.colorb_v);
       if(data.colorb_v < -0.5){
-        $('#starCirc').css('background-color','hsl(210, 96%, 46%)');
+        $('#starCirc').css('background','linear-gradient(100deg, hsl(210, 96%, 46%), hsl(209, 96%, 23%)');
       } else if (-0.5 < data.colorb_v && data.colorb_v < 0){
-        $('#starCirc').css('background-color', 'hsl(197, 96%, 74%)');
+        $('#starCirc').css('background', 'linear-gradient(100deg, hsl(197, 96%, 74%), hsl(197, 96%, 40%)');
       } else if (0 < data.colorb_v && data.colorb_v < 0.5){
-        $('#starCirc').css('background-color', 'hsl(14, 96%, 45%)');
+        $('#starCirc').css('background', 'linear-gradient(100deg, hsl(14, 96%, 20%), hsl(14, 96%, 70%)');
       } else {
-        $('#starCirc').css('background-color', 'hsl(356, 96%, 43%)');
+        $('#starCirc').css('background', 'linear-gradient(100deg, hsl(356, 96%, 20%), hsl(356, 96%, 70%)');
       }
 
       // Comparison Section
@@ -80,10 +80,10 @@ $(document).ready(function(){
 
     // Stars with exoplanets API data retrieval
     $.get('http://star-api.herokuapp.com/api/v1/exo_planets/' + searchResult + '.json', function(data){
-      if(data == null) {
-        alert("not a star!");
-        return
-      }
+      // if(data == null) {
+      //   alert("not a star!");
+      //   return
+      // }
       console.log(data);
       infoHeading.innerHTML = "More information about " + data.label;
       $('#infoContainer').append(infoHeading);
@@ -99,7 +99,7 @@ $(document).ready(function(){
       $('#infoContainer').append(numPlanets);
       $('#infoContainer').append(distance);
     })
-      $('#starCirc').css('background-color','hsl(14, 96%, 45%)');
+      $('#starCirc').css('background','linear-gradient(100deg, hsl(14, 96%, 40%), hsl(14, 96%, 70%)');
 
   })
 
@@ -133,4 +133,14 @@ $(document).ready(function(){
       $('#starCirc').css('display','inline');
       $('#earthCirc').css('display', 'inline');
     })
+
+    $('#resetButton').on("click", function(){
+      alert("Black Hole!")
+      $('#figure').css('display','none');
+      $('#infoHeading').remove();
+      $('#infoContainer').remove();
+      $('#compHeading').remove();
+      $('#compContainer').remove();
+    })
+
   })

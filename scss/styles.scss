@@ -14,7 +14,7 @@ main {
 }
 
 #mainHead{
-  display: flex;
+  // display: flex;
   color: $primary-color;
 }
 
@@ -40,14 +40,15 @@ video{
   display: none;
   border: 1px solid $primary-color;
   background-image: url('http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/');
-  margin-left: 40px;
+  margin-left: 60px;
   border-radius: $primary-border-radius;
+  width: 1000px;
   #infoContainer{
     border: 1px solid $primary-color;
     padding: 10px;
-    height:150px;
+    height:180px;
     border-radius: $primary-border-radius;
-    margin: 10px;
+    margin: 30px;
   }
   p{
     font-size: 12px;
@@ -58,8 +59,12 @@ video{
     color: $primary-color
   }
   #compContainer{
-    border: 1px solid black;
+    border: 1px solid $primary-color;
     margin-left: 500px;
+    border-radius: $primary-border-radius;
+    margin-top: 150px;
+    height: 150px;
+    margin-bottom: 20px;
   }
   .holder{
     display: flex;
@@ -73,14 +78,27 @@ video{
     display: none;
     width: 200px;
     height: 200px;
-    border-radius: 100px;
+    border-radius: 110px;
+    margin-left: 400px;
+    margin-right: 40px;
+    margin-top: 40px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
   }
   #earthCirc{
     display: none;
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    background-color: green;
-    margin-top: 150px;
+    background: linear-gradient(100deg, green, blue);
+    margin-top: 200px;
+    margin-left: 30px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
   }
+  @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 }
