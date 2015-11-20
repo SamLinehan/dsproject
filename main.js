@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
-  var recentSearches = JSON.parse(localStorage.userSearches)
-  console.log(recentSearches);
-  var searchList = document.createElement('li');
-  searchList.innerHTML = recentSearches;
-  $('#searchesList').append(searchList);
+  // var recentSearches = JSON.parse(localStorage.userSearches)
+  // console.log(recentSearches);
+  // var searchList = document.createElement('li');
+  // searchList.innerHTML = recentSearches;
+  // $('#searchesList').append(searchList);
 
   // Define Variables
   var luminosity;
@@ -23,6 +23,10 @@ $(document).ready(function(){
     var searchResult = $('#search').val();
     console.log(searchResult);
 
+    var searchList = document.createElement('li');
+    searchList.innerHTML = searchResult;
+    $('#searchesList').append(searchList);
+
 
     // Display figure section after click event
     $('#figure').css('display', "block");
@@ -30,8 +34,20 @@ $(document).ready(function(){
     // Below is the code for displaying the heading
     infoHeading = document.createElement('h3');
 
-// Stars without exoplanets API
-    $.get('http://star-api.herokuapp.com/api/v1/stars/' + searchResult + '.json',function(data){
+    function getWO(){
+      var d = $.Deferred();
+      $.get('https://star-api.herokuapp.com/api/v1/stars/' + searchResult + '.json')
+      .then(function(data){
+        if(data == null){
+          d.reject();
+          return;
+        }
+        d.resolve(data);
+      })
+      return d.promise();
+    }
+
+    function starsWO(data){
       infoHeading.innerHTML = "More information about " + data.label;
       $('#infoHeading').append(infoHeading);
 
@@ -88,31 +104,66 @@ $(document).ready(function(){
       }
       $('#compContainer').append(visibility);
 
-    })
-      // Stars with exoplanets API data retrieval
-      $.get('http://star-api.herokuapp.com/api/v1/exo_planets/' + searchResult + '.json', function(data){
-        console.log(data);
-        infoHeading.innerHTML = "More information about " + data.label;
-        $('#infoContainer').append(infoHeading);
-        $('#compContainer').css('display', 'none');
-        numPlanets = document.createElement('p');
-        if(data.numplanets === 1){
-          numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanet";
-        } else {
-          numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanets";
-        }
-        distance = document.createElement('p');
-        distance.innerHTML = data.label + " is " + data.distance + " light years away from Earth";
-        $('#infoContainer').append(numPlanets);
-        $('#infoContainer').append(distance);
-      })
+    }
 
-      $('#starCirc').css('background','linear-gradient(100deg, hsl(14, 96%, 40%), hsl(14, 96%, 70%)');
+    function getW(){
+      var d = $.Deferred();
+      $.get('https://star-api.herokuapp.com/api/v1/exo_planets/' + searchResult + '.json')
+      .then(function(data){
+        if(data == null){
+          d.reject();
+          return;
+        }
+        d.resolve(data);
+      });
+      return d.promise();
+    }
+
+
+
+    function starsW (data){
+      console.log(data);
+      infoHeading.innerHTML = "More information about " + data.label;
+      $('#infoContainer').append(infoHeading);
+      $('#compContainer').css('display', 'none');
+      numPlanets = document.createElement('p');
+      if(data.numplanets === 1){
+        numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanet";
+      } else {
+        numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanets";
+      }
+      distance = document.createElement('p');
+      distance.innerHTML = data.label + " is " + data.distance + " light years away from Earth";
+      $('#infoContainer').append(numPlanets);
+      $('#infoContainer').append(distance);
+    }
+
+    function pluto() {
+      alert("Not a star!")
+    }
+
+    $.when(getWO())
+    .done(starsWO)
+    .fail(function(){
+      getW()
+      .done(starsW)
+        .fail(pluto);
+    })
+
+// Stars without exoplanets API
+ //    $.get('https://star-api.herokuapp.com/api/v1/stars/' + searchResult + '.json')
+ //    .then(starsWO, function(){
+ //      $.get('https://star-api.herokuapp.com/api/v1/exo_planets/' + searchResult + '.json')
+ //      .then(starsW, pluto)}
+ // )
+// Stars with exoplanets API data retrieval
+
+    $('#starCirc').css('background','linear-gradient(100deg, hsl(14, 96%, 40%), hsl(14, 96%, 70%)');
 
   })
 
   // Below is the code for generating the list of stars
-    $.get('http://star-api.herokuapp.com/api/v1/stars.json', function(data){
+    $.get('https://star-api.herokuapp.com/api/v1/stars.json', function(data){
       var sortedList = data.sort(function(){
         return Math.round(Math.random()) - 0.5;
       })
@@ -123,7 +174,7 @@ $(document).ready(function(){
         randomList.appendChild(newItem);
       }
     })
-    $.get('http://star-api.herokuapp.com/api/v1/exo_planets.json', function(data){
+    $.get('https://star-api.herokuapp.com/api/v1/exo_planets.json', function(data){
       var sortedListB = data.sort(function(){
         return Math.round(Math.random()) - 0.5;
       })
@@ -143,7 +194,7 @@ $(document).ready(function(){
     })
 
     $('#resetButton').on("click", function(){
-      alert("Black Hole!")
+      // alert("Black Hole!")
       $('#figure').css('display','none');
       $(luminosity).remove();
       $(luminosity).innerHTML = "";
@@ -163,6 +214,8 @@ $(document).ready(function(){
       $(numPlanets).innerHTML = "";
       $(distance).remove();
       $(distance).innerHTML = "";
+      $('#earthCirc').css('display','none');
+      $('#starCirc').css('display', 'none');
     })
 
   })

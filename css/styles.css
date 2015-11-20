@@ -26,10 +26,13 @@ video {
   margin-top: 20px;
   border-radius: 20px; }
 
+#searchHead {
+  margin-top: 0px; }
+
 #figure {
   display: none;
   border: 1px solid white;
-  background-image: url("http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/");
+  background-image: url("https://i.imgur.com/i0MsMyS.jpg?1");
   margin-left: 60px;
   border-radius: 20px;
   width: 1000px; }
@@ -54,7 +57,8 @@ video {
     margin-bottom: 20px; }
   #figure .holder {
     display: flex;
-    background-image: url("http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/"); }
+    background-image: url("https://i.imgur.com/i0MsMyS.jpg?1");
+    border-radius: 20px; }
   #figure #figButton {
     margin-left: 20px;
     margin-right: 200px; }
