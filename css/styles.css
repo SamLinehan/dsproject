@@ -11,17 +11,17 @@ main {
 #mainHead {
   color: white; }
 
-video {
-  margin-left: 400px; }
+iframe {
+  border: none; }
 
 #list {
-  border: 1px solid white;
+  border: 2px solid white;
   padding: 10px;
   margin-top: 20px;
   border-radius: 20px; }
 
 #recent {
-  border: 1px solid white;
+  border: 2px solid white;
   padding: 10px;
   margin-top: 20px;
   border-radius: 20px; }
@@ -31,30 +31,31 @@ video {
 
 #figure {
   display: none;
-  border: 1px solid white;
+  border: 5px solid white;
   background-image: url("https://i.imgur.com/i0MsMyS.jpg?1");
   margin-left: 60px;
   border-radius: 20px;
   width: 1000px; }
   #figure #infoContainer {
-    border: 1px solid white;
+    border: 2px solid white;
     padding: 10px;
-    height: 180px;
+    height: 220px;
     border-radius: 20px;
     margin: 30px; }
   #figure p {
-    font-size: 12px;
+    font-size: 16px;
     color: white; }
   #figure h3 {
-    font-size: 14px;
+    font-size: 18px;
     color: white; }
   #figure #compContainer {
-    border: 1px solid white;
-    margin-left: 500px;
+    border: 2px solid white;
+    margin-left: 450px;
     border-radius: 20px;
     margin-top: 150px;
     height: 150px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    padding: 10px; }
   #figure .holder {
     display: flex;
     background-image: url("https://i.imgur.com/i0MsMyS.jpg?1");
@@ -64,11 +65,11 @@ video {
     margin-right: 200px; }
   #figure #starCirc {
     display: none;
-    width: 200px;
-    height: 200px;
-    border-radius: 110px;
+    width: 300px;
+    height: 180px;
+    border-radius: 120px;
     margin-left: 400px;
-    margin-right: 40px;
+    margin-right: 60px;
     margin-top: 40px;
     -webkit-animation: spin 4s linear infinite;
     -moz-animation: spin 4s linear infinite;
@@ -80,7 +81,7 @@ video {
     border-radius: 15px;
     background: linear-gradient(100deg, green, blue);
     margin-top: 200px;
-    margin-left: 60px;
+    margin-left: 80px;
     -webkit-animation: spin 4s linear infinite;
     -moz-animation: spin 4s linear infinite;
     animation: spin 4s linear infinite; }

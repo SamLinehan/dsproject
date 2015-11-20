@@ -19,19 +19,19 @@ main {
   color: $primary-color;
 }
 
-video{
-  margin-left: 400px;
+iframe{
+  border: none;
 }
 
 #list{
-  border: 1px solid $primary-color;
+  border: 2px solid $primary-color;
   padding: 10px;
   margin-top: 20px;
   border-radius: $primary-border-radius;
 }
 
 #recent{
-  border: 1px solid $primary-color;
+  border: 2px solid $primary-color;
   padding: 10px;
   margin-top: 20px;
   border-radius: $primary-border-radius;
@@ -42,33 +42,34 @@ video{
 
 #figure{
   display: none;
-  border: 1px solid $primary-color;
+  border: 5px solid $primary-color;
   background-image: url('https://i.imgur.com/i0MsMyS.jpg?1');
   margin-left: 60px;
   border-radius: $primary-border-radius;
   width: 1000px;
   #infoContainer{
-    border: 1px solid $primary-color;
+    border: 2px solid $primary-color;
     padding: 10px;
-    height:180px;
+    height:220px;
     border-radius: $primary-border-radius;
     margin: 30px;
   }
   p{
-    font-size: 12px;
+    font-size: 16px;
     color: $primary-color
   }
   h3{
-    font-size: 14px;
+    font-size: 18px;
     color: $primary-color
   }
   #compContainer{
-    border: 1px solid $primary-color;
-    margin-left: 500px;
+    border: 2px solid $primary-color;
+    margin-left: 450px;
     border-radius: $primary-border-radius;
     margin-top: 150px;
     height: 150px;
     margin-bottom: 20px;
+    padding: 10px;
   }
   .holder{
     display: flex;
@@ -81,11 +82,11 @@ video{
   }
   #starCirc{
     display: none;
-    width: 200px;
-    height: 200px;
-    border-radius: 110px;
+    width: 300px;
+    height: 180px;
+    border-radius: 120px;
     margin-left: 400px;
-    margin-right: 40px;
+    margin-right: 60px;
     margin-top: 40px;
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
@@ -98,7 +99,7 @@ video{
     border-radius: 15px;
     background: linear-gradient(100deg, green, blue);
     margin-top: 200px;
-    margin-left: 60px;
+    margin-left: 80px;
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;

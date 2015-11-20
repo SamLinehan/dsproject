@@ -1,11 +1,5 @@
 $(document).ready(function(){
 
-  // var recentSearches = JSON.parse(localStorage.userSearches)
-  // console.log(recentSearches);
-  // var searchList = document.createElement('li');
-  // searchList.innerHTML = recentSearches;
-  // $('#searchesList').append(searchList);
-
   // Define Variables
   var luminosity;
   var infoHeading;
@@ -23,8 +17,13 @@ $(document).ready(function(){
     var searchResult = $('#search').val();
     console.log(searchResult);
 
+    // Local Storage
+
+    var recentSearches = localStorage.userSearches ? JSON.parse(localStorage.userSearches): [];
+    console.log(recentSearches);
+    recentSearches.push(searchResult);
     var searchList = document.createElement('li');
-    searchList.innerHTML = searchResult;
+    searchList.innerHTML = recentSearches;
     $('#searchesList').append(searchList);
 
 
@@ -33,6 +32,8 @@ $(document).ready(function(){
 
     // Below is the code for displaying the heading
     infoHeading = document.createElement('h3');
+
+    // Get API functions and validating user input
 
     function getWO(){
       var d = $.Deferred();
@@ -51,7 +52,6 @@ $(document).ready(function(){
       infoHeading.innerHTML = "More information about " + data.label;
       $('#infoHeading').append(infoHeading);
 
-      // Stars without exoplanets API data retrieval
       luminosity = document.createElement('p');
       luminosity.innerHTML ="Luminosity: " + data.lum;
       dist = document.createElement('p');
@@ -120,7 +120,6 @@ $(document).ready(function(){
     }
 
 
-
     function starsW (data){
       console.log(data);
       infoHeading.innerHTML = "More information about " + data.label;
@@ -139,6 +138,7 @@ $(document).ready(function(){
     }
 
     function pluto() {
+      $('#figure').css('display','none');
       alert("Not a star!")
     }
 
@@ -159,10 +159,9 @@ $(document).ready(function(){
 // Stars with exoplanets API data retrieval
 
     $('#starCirc').css('background','linear-gradient(100deg, hsl(14, 96%, 40%), hsl(14, 96%, 70%)');
-
   })
 
-  // Below is the code for generating the list of stars
+  // Below is the code for generating the list of random stars
     $.get('https://star-api.herokuapp.com/api/v1/stars.json', function(data){
       var sortedList = data.sort(function(){
         return Math.round(Math.random()) - 0.5;
@@ -194,7 +193,7 @@ $(document).ready(function(){
     })
 
     $('#resetButton').on("click", function(){
-      // alert("Black Hole!")
+      alert("Black Hole!")
       $('#figure').css('display','none');
       $(luminosity).remove();
       $(luminosity).innerHTML = "";
@@ -217,5 +216,4 @@ $(document).ready(function(){
       $('#earthCirc').css('display','none');
       $('#starCirc').css('display', 'none');
     })
-
   })
