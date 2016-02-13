@@ -12,7 +12,7 @@ $(document).ready(function(){
   var distance;
 
   // Below is the code for the search function
-  $('#searchButton').on('click',function(e){
+  $('.searchButton').on('click',function(e){
     e.preventDefault();
     var searchResult = $('#search').val();
     console.log(searchResult);
@@ -24,11 +24,11 @@ $(document).ready(function(){
     recentSearches.push(searchResult);
     var searchList = document.createElement('li');
     searchList.innerHTML = recentSearches;
-    $('#searchesList').append(searchList);
+    $('.searchesList').append(searchList);
 
 
     // Display figure section after click event
-    $('#figure').css('display', "block");
+    $('.figure').css('display', "block");
 
     // Below is the code for displaying the heading
     infoHeading = document.createElement('h3');
@@ -50,7 +50,7 @@ $(document).ready(function(){
 
     function starsWO(data){
       infoHeading.innerHTML = "More information about " + data.label;
-      $('#infoHeading').append(infoHeading);
+      $('.infoHeading').append(infoHeading);
 
       luminosity = document.createElement('p');
       luminosity.innerHTML ="Luminosity: " + data.lum;
@@ -62,27 +62,27 @@ $(document).ready(function(){
       } else {
         color.innerHTML = data.label + " is a Red Star";
       }
-      $('#infoContainer').append(luminosity);
-      $('#infoContainer').append(dist);
-      $('#infoContainer').append(color);
+      $('.infoContainer').append(luminosity);
+      $('.infoContainer').append(dist);
+      $('.infoContainer').append(color);
 
       // Color of star
       console.log(data.colorb_v);
       if(data.colorb_v < -0.5){
-        $('#starCirc').css('background','linear-gradient(100deg, hsl(210, 96%, 46%), hsl(209, 96%, 23%)');
+        $('.starCirc').css('background','linear-gradient(100deg, hsl(210, 96%, 46%), hsl(209, 96%, 23%)');
       } else if (-0.5 < data.colorb_v && data.colorb_v < 0){
-        $('#starCirc').css('background', 'linear-gradient(100deg, hsl(197, 96%, 74%), hsl(197, 96%, 40%)');
+        $('.starCirc').css('background', 'linear-gradient(100deg, hsl(197, 96%, 74%), hsl(197, 96%, 40%)');
       } else if (0 < data.colorb_v && data.colorb_v < 0.5){
-        $('#starCirc').css('background', 'linear-gradient(100deg, hsl(14, 96%, 20%), hsl(14, 96%, 70%)');
+        $('.starCirc').css('background', 'linear-gradient(100deg, hsl(14, 96%, 20%), hsl(14, 96%, 70%)');
       } else {
-        $('#starCirc').css('background', 'linear-gradient(100deg, hsl(356, 96%, 20%), hsl(356, 96%, 70%)');
+        $('.starCirc').css('background', 'linear-gradient(100deg, hsl(356, 96%, 20%), hsl(356, 96%, 70%)');
       }
 
       // Comparison Section
-      $('#compContainer').css('display', 'inline');
+      $('.compContainer').css('display', 'inline');
       compHeading = document.createElement('h3');
       compHeading.innerHTML = "In comparison to the Sun,";
-      $('#compHeading').append(compHeading);
+      $('.compHeading').append(compHeading);
       luminosityComp = document.createElement('p');
       var sunLum = 0.8913
       if(data.lum > sunLum){
@@ -94,7 +94,7 @@ $(document).ready(function(){
       } else {
         luminosityComp.innerHTML = "The Sun and " + data.label + " are of the same luminosity";
       }
-      $('#compContainer').append(luminosityComp);
+      $('.compContainer').append(luminosityComp);
 
       visibility = document.createElement('p');
       if( -2.5 < data.appmag < 6.5){
@@ -102,7 +102,7 @@ $(document).ready(function(){
       } else {
         visibility.innerHTML = "Unlike the Sun, " + data.label + " is not visible to the naked eye";
       }
-      $('#compContainer').append(visibility);
+      $('.compContainer').append(visibility);
 
     }
 
@@ -123,8 +123,8 @@ $(document).ready(function(){
     function starsW (data){
       console.log(data);
       infoHeading.innerHTML = "More information about " + data.label;
-      $('#infoContainer').append(infoHeading);
-      $('#compContainer').css('display', 'none');
+      $('.infoContainer').append(infoHeading);
+      $('.compContainer').css('display', 'none');
       numPlanets = document.createElement('p');
       if(data.numplanets === 1){
         numPlanets.innerHTML = data.label + " has " + data.numplanets + " Exoplanet";
@@ -133,12 +133,12 @@ $(document).ready(function(){
       }
       distance = document.createElement('p');
       distance.innerHTML = data.label + " is " + data.distance + " light years away from Earth";
-      $('#infoContainer').append(numPlanets);
-      $('#infoContainer').append(distance);
+      $('.infoContainer').append(numPlanets);
+      $('.infoContainer').append(distance);
     }
 
     function pluto() {
-      $('#figure').css('display','none');
+      $('.figure').css('display','none');
       alert("Not a star!")
     }
 
@@ -149,16 +149,9 @@ $(document).ready(function(){
       .done(starsW)
         .fail(pluto);
     })
-
-// Stars without exoplanets API
- //    $.get('https://star-api.herokuapp.com/api/v1/stars/' + searchResult + '.json')
- //    .then(starsWO, function(){
- //      $.get('https://star-api.herokuapp.com/api/v1/exo_planets/' + searchResult + '.json')
- //      .then(starsW, pluto)}
- // )
 // Stars with exoplanets API data retrieval
 
-    $('#starCirc').css('background','linear-gradient(100deg, hsl(14, 96%, 40%), hsl(14, 96%, 70%)');
+    $('.starCirc').css('background','linear-gradient(100deg, hsl(14, 96%, 40%), hsl(14, 96%, 70%)');
   })
 
   // Below is the code for generating the list of random stars
@@ -186,15 +179,15 @@ $(document).ready(function(){
     })
 
     // Figure Button
-    $('#figButton').on("click", function(e){
+    $('.figButton').on("click", function(e){
       e.preventDefault();
-      $('#starCirc').css('display','inline');
-      $('#earthCirc').css('display', 'inline');
+      $('.starCirc').css('display','inline');
+      $('.earthCirc').css('display', 'inline');
     })
 
-    $('#resetButton').on("click", function(){
+    $('.resetButton').on("click", function(){
       alert("Black Hole!")
-      $('#figure').css('display','none');
+      $('.figure').css('display','none');
       $(luminosity).remove();
       $(luminosity).innerHTML = "";
       $(infoHeading).remove();
@@ -213,7 +206,7 @@ $(document).ready(function(){
       $(numPlanets).innerHTML = "";
       $(distance).remove();
       $(distance).innerHTML = "";
-      $('#earthCirc').css('display','none');
-      $('#starCirc').css('display', 'none');
+      $('.earthCirc').css('display','none');
+      $('.starCirc').css('display', 'none');
     })
   })

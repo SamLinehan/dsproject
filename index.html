@@ -4,48 +4,44 @@
     <meta charset="utf-8">
     <title>DS Project</title>
     <link rel="stylesheet" href="/css/styles.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <header id="mainHead">
+    <header class="mainHead">
       <h1>The Dark Star Project</h1>
-      <iframe src="https://archive.org/embed/gd69-10-25.sbd.jagla.81.sbefail.shnf" width="500" height="50"></iframe>
     </header>
     <main>
-      <section id="info">
+      <section class="info">
         <form class="search" action="index.html" method="get">
-          <label for="searchBar"><h3 id="searchHead">Enter the name of a star here: </h3></label>
+          <label for="searchBar"><h3 class="searchHead">Enter the name of a star here: </h3></label>
           <input type="text" name="searchBar" placeholder="search" id="search">
-          <button type="reset" name="resetButton" id="resetButton">Reset</button>
-          <button type="submit" name="searchButton" id="searchButton">Submit</button>
+          <button type="reset" name="resetButton" class="resetButton">Reset</button>
+          <button type="submit" name="searchButton" class="searchButton">Submit</button>
         </form>
-        <section id="list">
+        <section class="list">
           <h3>Here's a list of Stars</h3>
           <ul id="randomList">
           </ul>
         </section>
-        <section id="recent">
+        <section class="recent">
           <h3>Recent Searches</h3>
-          <ul id="searchesList"></ul>
+          <ul class="searchesList"></ul>
         </section>
       </section>
-      <section id="figure">
+      <section class="figure">
         <div class="holder">
-          <section id="infoContainer">
-            <header id="infoHeading"></header>
+          <section class="infoContainer">
+            <header class="infoHeading"></header>
             <form class="appear" action="index.html" method="get">
-              <button type="submit" name="figButton" id="figButton">Animate</button>
+              <button type="submit" name="figButton" class="figButton">Animate</button>
             </form>
           </section>
-          <div id="starCirc"></div>
+          <div class="starCirc"></div>
         </div>
         <div class="holder">
-          <div id="earthCirc"></div>
-          <!--  New feature -->
-          <!-- <div id="exPlanet1"></div> -->
-          <!-- <div id="exPlanet2"></div>
-          <div id="exPlanet3"></div> -->
-          <section id="compContainer">
-            <header id="compHeading"></header>
+          <div class="earthCirc"></div>
+          <section class="compContainer">
+            <header class="compHeading"></header>
           </section>
         </div>
       </section>

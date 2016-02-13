@@ -1,5 +1,6 @@
 html {
-  background-image: url("https://i.imgur.com/i0MsMyS.jpg?1"); }
+  background-image: url("https://i.imgur.com/i0MsMyS.jpg?1");
+  font-family: 'Abel', sans-serif; }
 
 main {
   display: flex;
@@ -8,47 +9,48 @@ main {
   padding: 30px;
   margin-left: 40px; }
 
-#mainHead {
+.mainHead {
   color: white; }
 
-iframe {
-  border: none; }
-
-#list {
+.list {
   border: 2px solid white;
   padding: 10px;
   margin-top: 20px;
   border-radius: 20px; }
 
-#recent {
+.recent {
   border: 2px solid white;
   padding: 10px;
   margin-top: 20px;
   border-radius: 20px; }
 
-#searchHead {
+.searchHead {
   margin-top: 0px; }
 
-#figure {
+.figure {
   display: none;
   border: 5px solid white;
   background-image: url("https://i.imgur.com/i0MsMyS.jpg?1");
   margin-left: 60px;
   border-radius: 20px;
   width: 1000px; }
-  #figure #infoContainer {
+  .figure .infoContainer {
+    display: flex;
+    flex-direction: column;
     border: 2px solid white;
     padding: 10px;
-    height: 220px;
+    height: auto;
     border-radius: 20px;
     margin: 30px; }
-  #figure p {
+  .figure p {
     font-size: 16px;
     color: white; }
-  #figure h3 {
+  .figure h3 {
     font-size: 18px;
     color: white; }
-  #figure #compContainer {
+  .figure .compContainer {
+    display: flex;
+    flex-direction: column;
     border: 2px solid white;
     margin-left: 450px;
     border-radius: 20px;
@@ -56,14 +58,14 @@ iframe {
     height: 150px;
     margin-bottom: 20px;
     padding: 10px; }
-  #figure .holder {
+  .figure .holder {
     display: flex;
     background-image: url("https://i.imgur.com/i0MsMyS.jpg?1");
     border-radius: 20px; }
-  #figure #figButton {
+  .figure .figButton {
     margin-left: 20px;
     margin-right: 200px; }
-  #figure #starCirc {
+  .figure .starCirc {
     display: none;
     width: 300px;
     height: 180px;
@@ -74,7 +76,7 @@ iframe {
     -webkit-animation: spin 4s linear infinite;
     -moz-animation: spin 4s linear infinite;
     animation: spin 4s linear infinite; }
-  #figure #earthCirc {
+  .figure .earthCirc {
     display: none;
     width: 30px;
     height: 30px;

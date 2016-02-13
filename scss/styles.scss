@@ -1,5 +1,6 @@
 html{
   background-image: url('https://i.imgur.com/i0MsMyS.jpg?1');
+  font-family: 'Abel', sans-serif;
 }
 
 $primary-color: white;
@@ -14,43 +15,44 @@ main {
   margin-left: 40px;
 }
 
-#mainHead{
-  // display: flex;
+.mainHead{
   color: $primary-color;
 }
 
-iframe{
-  border: none;
+.search {
+  // display: flex;
 }
 
-#list{
+.list{
   border: 2px solid $primary-color;
   padding: 10px;
   margin-top: 20px;
   border-radius: $primary-border-radius;
 }
 
-#recent{
+.recent{
   border: 2px solid $primary-color;
   padding: 10px;
   margin-top: 20px;
   border-radius: $primary-border-radius;
 }
-#searchHead{
+.searchHead{
   margin-top: 0px;
 }
 
-#figure{
+.figure{
   display: none;
   border: 5px solid $primary-color;
   background-image: url('https://i.imgur.com/i0MsMyS.jpg?1');
   margin-left: 60px;
   border-radius: $primary-border-radius;
   width: 1000px;
-  #infoContainer{
+  .infoContainer{
+    display: flex;
+    flex-direction: column;
     border: 2px solid $primary-color;
     padding: 10px;
-    height:220px;
+    height:auto;
     border-radius: $primary-border-radius;
     margin: 30px;
   }
@@ -62,7 +64,9 @@ iframe{
     font-size: 18px;
     color: $primary-color
   }
-  #compContainer{
+  .compContainer{
+    display: flex;
+    flex-direction: column;
     border: 2px solid $primary-color;
     margin-left: 450px;
     border-radius: $primary-border-radius;
@@ -76,11 +80,11 @@ iframe{
     background-image: url('https://i.imgur.com/i0MsMyS.jpg?1');
     border-radius: $primary-border-radius;
   }
-  #figButton{
+  .figButton{
     margin-left: 20px;
     margin-right: 200px;
   }
-  #starCirc{
+  .starCirc{
     display: none;
     width: 300px;
     height: 180px;
@@ -92,7 +96,7 @@ iframe{
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
   }
-  #earthCirc{
+  .earthCirc{
     display: none;
     width: 30px;
     height: 30px;
