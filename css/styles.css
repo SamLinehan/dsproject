@@ -12,6 +12,13 @@ main {
 .mainHead {
   color: white; }
 
+button {
+  background-color: white;
+  font-family: 'Abel', sans-serif;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer; }
+
 .list {
   border: 2px solid white;
   padding: 10px;

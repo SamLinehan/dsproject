@@ -19,8 +19,12 @@ main {
   color: $primary-color;
 }
 
-.search {
-  // display: flex;
+button {
+  background-color: white;
+  font-family: 'Abel', sans-serif;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .list{
@@ -108,13 +112,6 @@ main {
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
   }
-// New feature
-  // #exPlanet1{
-  //   width: 20px;
-  //   height: 20px;
-  //   border-radius: 10px;
-  //   background: $explanet-color;
-    // display: none;}
   @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
   @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
